@@ -1,10 +1,8 @@
 function [newX, newY] = rotatePoint(x, y, angle)
 
-hypo = sqrt(x.^2 + y.^2);
+vector = (x + y*1i) * exp(1i * angle);
 
-newAngle = angle + asin(y ./ hypo);
-
-newX = cos(newAngle) .* hypo;
-newY = sin(newAngle) .* hypo;
+newX = real(vector);
+newY = imag(vector);
 
 end
